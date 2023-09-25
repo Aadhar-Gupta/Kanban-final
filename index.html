@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban</title>
+  <link rel="icon" href="Untitled-2.png" type="img">
+  <link rel="stylesheet" href="style.css" />
+  <script async src="https://basicons.xyz/embed.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="top-sidebar">
+        <div class="top-img"><img src="Untitled-2.png" alt="" /></div>
+        <div class="boards">
+          <p class="head">ALL BOARDS(8)</p>
+          <ul class="boards">
+            <li class="board-items">
+              <img src="book.png" alt="" style="width: 10px" /> Platform
+              Launch
+            </li>
+
+            <li class="board-items">
+              <img src="book.png" alt="" style="width: 10px" /> marketing plan
+            </li>
+
+            <li class="board-items">
+              <img src="book.png" alt="" style="width: 10px" />roadmap
+            </li>
+
+            <li class="board-items">
+              <img src="book.png" alt="" style="width: 10px" />Create a new
+              board
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bottom-sidebar">
+        <div class="mode">
+          <img class="sun" src="Sun.png" alt="" />
+          <div class="checkbox-apple">
+            <input onclick="darkmode()" class="yep" id="check-apple" type="checkbox" />
+            <label for="check-apple"></label>
+          </div>
+          <img class="moon" src="Moon.png" alt="" />
+        </div>
+        <div class="hide">
+          <button onclick="hidesidebar()" class="hide-sidebar">
+            hide sidebar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="main-body">
+      <div class="top">
+        <p>Platform Launch</p>
+        <button onclick="showButton()" class="task">+Add new task</button>
+        <img onclick="hidesidebar()" class="menu" src="icons8-menu-vertical-64.png" alt="" />
+      </div>
+      <div class="main-content">
+        <div id="todo" class="todo">
+          <p class="title"><span id="dot1" class="dot"></span> TODO <span id="LengthTodo"></span></p>
+          <ul ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 50vh;" id="TODO">
+          </ul>
+        </div>
+        <div id="doing" class="todo">
+          <p class="title"><span id="dot2" class="dot"></span> Doing <span id="LengthDoing"></span></p>
+          <ul ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 50vh;" id="Doing">
+          </ul>
+        </div>
+        <div id="done" class="todo">
+          <p class="title"><span id="dot3" class="dot"></span> Done <span id="LengthDone"></span> </p>
+          <ul ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 50vh;" id="Done">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup1">
+    <div class="popup-container">
+      <form>
+        <span onclick="closepopup()" class="close">X</span>
+        <p>Add New Task</p>
+        <label for="title-input">Title</label>
+        <input type="text" style="background: transparent; border: 2px black solid" id="title-input"
+          placeholder="eg:take Coffee Break" />
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="this 15 min break will recharge the batteries a little "
+          style="border: 2px black solid; background: transparent" cols="30" rows="5"></textarea>
+        <label for="Subtask 1">Subtasks</label>
+        <ul id="subtask_list">
+          <li id="subtask0" class="Sub-Li">
+            <input type="text" style="border: 2px black solid; background: transparent"  class="subtasks"
+              placeholder="eg:make coffee" /> <span onclick="removeSubtask(`${p}`)" class="remove-sub">X</span>
+          </li>
+        </ul>
+        <input type="button" onclick="CreateSubtask()" class="subtask-btn" value="+Add New Subtask" />
+        <label for="status">Status</label>
+        <select id="status">
+          <option value="done">Done</option>
+          <option selected value="Todo">Todo</option>
+          <option value="dooing">Doing</option>
+        </select>
+        <button onclick="createTask() " type="button" class="task-btn">Create Task</button>
+      </form>
+    </div>
+  </div>
+  <!-- <div  id="popup2" class="popup2">
+    <div class="popup2Container">
+      <span onclick="disablepopup2()" class="close2">X</span>
+      <div >
+        <h2 ></h2>
+      </div>
+      <div class="taskDes">
+        <p class="Tasktitle"></p>
+      </div>
+      <div class="subList">
+        <div id="checklist">
+          <input id="01" type="checkbox" name="r" value="1" checked="">
+          <label for="01">Bread</label>
+          <input id="02" type="checkbox" name="r" value="2">
+          <label for="02">Cheese</label>
+          <input id="03" type="checkbox" name="r" value="3">
+          <label for="03">Coffee</label>
+          <input id="04" type="checkbox" name="r" value="3">
+          <label for="04">Coffee</label>
+        </div>
+      </div>
+      <div class="statTAB">
+        <label for="status">Status</label>
+        <select id="status">
+          <option value="done">Done</option>
+          <option selected value="Todo">Todo</option>
+          <option value="dooing">Doing</option>
+        </select>
+      </div>
+    </div>
+  </div> -->
+</body>
+
+</html>
